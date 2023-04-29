@@ -2,4 +2,30 @@ html {
     min-height: 100%
 }
 
-body {}
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    justify-content: space-evenly;
+    flex-basis: 20%;
+    flex-wrap: wrap;
+    position: center center;
+    border: 2px solid black;
+    height: 20em;
+    max-width: 100%;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.clear-Container {
+    display: flex;
+    justify-content: center;
+}
