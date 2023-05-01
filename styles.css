@@ -3,17 +3,22 @@ html {
 }
 
 body {
+    position: center center;
+    border: 2px solid black;
+    height: 20em;
+    max-width: 40%;
+}
+
+.flex-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     justify-items: center;
     justify-content: space-evenly;
-    flex-basis: 20%;
+    flex-basis: 50%;
     flex-wrap: wrap;
-    position: center center;
-    border: 2px solid black;
-    height: 20em;
-    max-width: 100%;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 h2 {
@@ -25,7 +30,13 @@ p {
     font-size: 25px;
 }
 
-.clear-Container {
-    display: flex;
-    justify-content: center;
+.clear {
+justify-content: center;
+margin-top: 3em;
+}
+
+button {
+    width: 6em;
+    height: 2em;
+    margin: 0.35em;
 }
