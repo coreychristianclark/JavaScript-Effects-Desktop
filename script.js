@@ -11,24 +11,6 @@ const green = document.querySelector(".green");
 const blur = document.querySelector(".blur");
 const clear = document.querySelector(".clear");
 
-// function underline() {}
-
-// function grow() {}
-
-// function shrink() {}
-
-// function invert() {}
-
-// function red() {}
-
-// function blue() {}
-
-// function green() {}
-
-// function blur() {}
-
-// function clear() {}
-
 bold.addEventListener("click", () => {
   p.style.fontWeight = "bold";
 });
@@ -41,14 +23,57 @@ underline.addEventListener("click", () => {
   p.style.textDecoration = "underline";
 });
 
-
-const currentFontSize = 25;
-const currentClicks = 0
+let currentFontSize = 25;
+let clickCounter = 0;
 
 grow.addEventListener("click", () => {
-    if (currentClicks < 3) {
-        currentFontSize += 1
-        p.style.fontSize = currentFontSize + "px"
-    }
+  if (clickCounter < 3) {
+    clickCounter++;
+    currentFontSize += 1;
+    p.style.fontSize = currentFontSize + "px";
+  }
+});
 
-})
+shrink.addEventListener("click", () => {
+  if (clickCounter < 3) {
+    clickCounter++;
+    currentFontSize -= 1;
+    p.style.fontSize = currentFontSize + "px";
+  }
+});
+
+invert.addEventListener("click", () => {
+  p.classList.toggle("upsideDown");
+});
+
+red.addEventListener("click", () => {
+  p.classList.toggle("danger");
+});
+
+blue.addEventListener("click", () => {
+  p.classList.toggle("aqua");
+});
+
+green.addEventListener("click", () => {
+  p.classList.toggle("go");
+});
+
+let blurFilter = 0;
+
+blur.addEventListener("click", () => {
+  if (clickCounter < 3) {
+    clickCounter++;
+    blurFilter += 1;
+    p = blurFilter + "px";
+    }
+    
+BLUR WONT WORKKKKKKKKKKKKKKKK
+
+
+
+
+
+
+
+
+});
