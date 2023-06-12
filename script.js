@@ -8,7 +8,7 @@ const invert = document.querySelector(".invert");
 const red = document.querySelector(".red");
 const blue = document.querySelector(".blue");
 const green = document.querySelector(".green");
-const blur = document.querySelector(".blur");
+const blurEffect = document.querySelector(".blur");
 const clear = document.querySelector(".clear");
 
 bold.addEventListener("click", () => {
@@ -60,20 +60,19 @@ green.addEventListener("click", () => {
 
 let blurFilter = 0;
 
-blur.addEventListener("click", () => {
-  if (clickCounter < 3) {
-    clickCounter++;
+blurEffect.addEventListener("click", () => {
+  clickCounter++;
+
+  if (clickCounter < 4) {
     blurFilter += 1;
-    p = blurFilter + "px";
-    }
-    
-BLUR WONT WORKKKKKKKKKKKKKKKK
-
-
-
-
-
-
-
-
+    p.style.filter = "blur(" + blurFilter + "px)";
+  } else {
+    blurFilter = 0;
+    p.style.filter = "none";
+    clickCounter = 0;
+  }
 });
+
+clear.addEventListener('click', () => {
+    p.style = ""
+})

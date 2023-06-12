@@ -56,7 +56,3 @@ color: blue;
 .go {
     color: green;
 }
-
-.blurFilter {
-    filter: blur(2px)
-}
