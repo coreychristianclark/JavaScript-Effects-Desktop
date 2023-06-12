@@ -41,6 +41,25 @@ button {
     margin: 0.35em;
 }
 
+.buttonDown {
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+}
+
+
+.boldEffect {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underlineEffect {
+    text-decoration: underline;
+}
+
 .upsideDown {
   transform: rotate(180deg);
 }
