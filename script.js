@@ -30,19 +30,20 @@ let currentFontSize = 25;
 let clickCounter = 0;
 
 grow.addEventListener("click", () => {
-    p.classList.remove("shrink")
-    shrink.classList.remove('buttonDown')
   if (clickCounter < 3) {
     clickCounter++;
     currentFontSize += 1;
     p.style.fontSize = currentFontSize + "px";
-  } else if (clickCounter === 3) {
+  } else if (clickCounter >= 3) {
     grow.classList.remove("buttonDown");
     clickCounter = 0;
-    currentFontSize = 25;
+      currentFontSize = 25;
     p.style.fontSize = "";
   }
-  if (clickCounter === 1) {
+    if (clickCounter === 1) {
+         p.classList.remove("shrink");
+         shrink.classList.remove("buttonDown");
+ 
     grow.classList.add("buttonDown");
   }
 });
