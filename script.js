@@ -30,6 +30,8 @@ let currentFontSize = 25;
 let clickCounter = 0;
 
 grow.addEventListener("click", () => {
+    p.classList.remove("shrink")
+    shrink.classList.remove('buttonDown')
   if (clickCounter < 3) {
     clickCounter++;
     currentFontSize += 1;
@@ -67,18 +69,30 @@ invert.addEventListener("click", () => {
 });
 
 red.addEventListener("click", () => {
+    p.classList.remove("aqua")
+    p.classList.remove("go")
   p.classList.toggle("danger");
-  red.classList.toggle("buttonDown");
+    red.classList.toggle("buttonDown");
+    blue.classList.remove("buttonDown")
+    green.classList.remove("buttonDown")
 });
 
 blue.addEventListener("click", () => {
+    p.classList.remove("danger")
+    p.classList.remove("go")
   p.classList.toggle("aqua");
-  blue.classList.toggle("buttonDown");
+    blue.classList.toggle("buttonDown");
+    red.classList.remove("buttonDown")
+    green.classList.remove("buttonDown")
 });
 
 green.addEventListener("click", () => {
+    p.classList.remove("danger")
+    p.classList.remove("aqua")
   p.classList.toggle("go");
-  green.classList.toggle("buttonDown");
+    green.classList.toggle("buttonDown");
+    red.classList.remove("buttonDown")
+    blue.classList.remove("buttonDown")
 });
 
 let blurFilter = 0;
@@ -101,7 +115,23 @@ blurEffect.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
-  p.style = "";
-});
-
-JUST HAVE TO GET THE CLEAR FUNCTION WORKING.
+  p.classList.remove("boldEffect");
+  p.classList.remove("italic");
+  p.classList.remove("underlineEffect");
+  p.classList.remove("upsideDown");
+  p.classList.remove("danger");
+  p.classList.remove("aqua");
+    p.classList.remove("go");
+    p.classList.remove("buttonDown")
+    p.style = "";
+      bold.classList.remove("buttonDown");
+      italicize.classList.remove("buttonDown");
+      underline.classList.remove("buttonDown");
+      grow.classList.remove("buttonDown");
+      shrink.classList.remove("buttonDown");
+      invert.classList.remove("buttonDown");
+      red.classList.remove("buttonDown");
+      blue.classList.remove("buttonDown");
+      green.classList.remove("buttonDown");
+      blurEffect.classList.remove("buttonDown");
+    });
