@@ -1,72 +1,72 @@
 const p = document.querySelector("p");
 
-const bold = document.querySelector(".bold");
+const bold = document.querySelector("#bold");
 bold.addEventListener("click", () => {
   p.classList.toggle("boldEffect");
   bold.classList.toggle("buttonDown");
 });
 
-const italicize = document.querySelector(".italicize");
+const italicize = document.querySelector("#italicize");
 italicize.addEventListener("click", () => {
   p.classList.toggle("italic");
   italicize.classList.toggle("buttonDown");
 });
 
-const underline = document.querySelector(".underline");
+const underline = document.querySelector("#underline");
 underline.addEventListener("click", () => {
   p.classList.toggle("underlineEffect");
   underline.classList.toggle("buttonDown");
 });
 
+let currentFontSize = 25;
+let growClickCounter = 0;
+let shrinkClickCounter = 0
 
-    let currentFontSize = 25;
-    let clickCounter = 0;
-
-const grow = document.querySelector(".grow");
+const grow = document.querySelector("#grow");
 grow.addEventListener("click", () => {
-
-  if (clickCounter < 3) {
-    clickCounter++;
+    p.classList.remove("shrink");
+    shrink.classList.remove('buttonDown')
+    grow.classList.add("buttonDown");
+            p.style.fontSize = "";
+      
+  if (growClickCounter < 3) {
+    growClickCounter++;
     currentFontSize += 1;
     p.style.fontSize = currentFontSize + "px";
-  } else if (clickCounter >= 3) {
+  } else if (growClickCounter >= 3) {
     grow.classList.remove("buttonDown");
-      clickCounter = 0;
-          currentFontSize = 25;
-
-    p.style.fontSize = "";
-  }
-  if (clickCounter === 1) {
-    p.classList.remove("shrink");
-    grow.classList.add("buttonDown");
-  }
-});
-
-const shrink = document.querySelector(".shrink");
-shrink.addEventListener("click", () => {
-
-  if (clickCounter < 3) {
-    clickCounter++;
-    currentFontSize -= 1;
-    p.style.fontSize = currentFontSize + "px";
-  } else if (clickCounter >= 3) {
-    shrink.classList.remove("buttonDown");
-    clickCounter = 0;
+    growClickCounter = 0;
     currentFontSize = 25;
     p.style.fontSize = "";
   }
-  if (clickCounter === 1) {
+});
+
+const shrink = document.querySelector("#shrink");
+shrink.addEventListener("click", () => {
+        p.classList.remove("grow");
+        grow.classList.remove("buttonDown");
     shrink.classList.add("buttonDown");
+    p.style.fontSize = ""
+      
+  if (shrinkClickCounter < 3) {
+    shrinkClickCounter++;
+    currentFontSize -= 1;
+    p.style.fontSize = currentFontSize + "px";
+  } else if (shrinkClickCounter >= 3) {
+    shrink.classList.remove("buttonDown");
+    shrinkClickCounter = 0;
+    currentFontSize = 25;
+    p.style.fontSize = "";
   }
 });
 
-const invert = document.querySelector(".invert");
+const invert = document.querySelector("#invert");
 invert.addEventListener("click", () => {
   p.classList.toggle("upsideDown");
   invert.classList.toggle("buttonDown");
 });
 
-const red = document.querySelector(".red");
+const red = document.querySelector("#red");
 red.addEventListener("click", () => {
   p.classList.remove("aqua");
   p.classList.remove("go");
@@ -76,7 +76,7 @@ red.addEventListener("click", () => {
   green.classList.remove("buttonDown");
 });
 
-const blue = document.querySelector(".blue");
+const blue = document.querySelector("#blue");
 blue.addEventListener("click", () => {
   p.classList.remove("danger");
   p.classList.remove("go");
@@ -86,7 +86,7 @@ blue.addEventListener("click", () => {
   green.classList.remove("buttonDown");
 });
 
-const green = document.querySelector(".green");
+const green = document.querySelector("#green");
 green.addEventListener("click", () => {
   p.classList.remove("danger");
   p.classList.remove("aqua");
@@ -98,7 +98,7 @@ green.addEventListener("click", () => {
 
 let blurFilter = 0;
 
-const blurEffect = document.querySelector(".blur");
+const blurEffect = document.querySelector("#blur");
 blurEffect.addEventListener("click", () => {
   clickCounter++;
 
@@ -116,7 +116,7 @@ blurEffect.addEventListener("click", () => {
   }
 });
 
-const clear = document.querySelector(".clear");
+const clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
   p.classList.remove("boldEffect");
   p.classList.remove("italic");

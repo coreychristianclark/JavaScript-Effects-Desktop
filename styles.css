@@ -9,7 +9,7 @@ body {
     max-width: 40%;
 }
 
-.flex-container {
+#flex-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,7 +30,7 @@ p {
     font-size: 25px;
 }
 
-.clear {
+#clear {
     justify-content: center;
     margin-top: 3em;
 }
