@@ -6,6 +6,15 @@ body {
     border: 2px solid black;
     height: 21em;
     max-width: 50%;
+    border-radius: 2%;
+    background: linear-gradient(to right, #B1E1FF, #A7FFE4, #B1B2FF);
+}
+
+#merge {
+    height: 100%;
+    background-color: #dcc7f8;
+    border-radius: 2%;
+
 }
 
 #flex-container {
@@ -21,6 +30,8 @@ body {
 
 h2 {
     text-align: center;
+    padding-top: 1em;
+    margin: 0;
 }
 
 
@@ -33,7 +44,6 @@ p {
 #pContainer {
 overflow: hidden;
 height: 5em;
-
 }
 
 #clear {
