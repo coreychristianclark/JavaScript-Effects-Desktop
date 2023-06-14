@@ -32,10 +32,12 @@ p {
 
 #pContainer {
 overflow: hidden;
+height: 5em;
+
 }
 
 #clear {
-    margin-top: 3em;
+    margin-top: 2em;
 }
 
 button {
