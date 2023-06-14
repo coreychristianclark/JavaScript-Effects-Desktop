@@ -20,15 +20,15 @@ underline.addEventListener("click", () => {
 
 let currentFontSize = 25;
 let growClickCounter = 0;
-let shrinkClickCounter = 0
+let shrinkClickCounter = 0;
 
 const grow = document.querySelector("#grow");
 grow.addEventListener("click", () => {
-    p.classList.remove("shrink");
-    shrink.classList.remove('buttonDown')
-    grow.classList.add("buttonDown");
-            p.style.fontSize = "";
-      
+  p.classList.remove("shrink");
+  shrink.classList.remove("buttonDown");
+  grow.classList.add("buttonDown");
+  p.style.fontSize = "";
+
   if (growClickCounter < 3) {
     growClickCounter++;
     currentFontSize += 1;
@@ -43,11 +43,11 @@ grow.addEventListener("click", () => {
 
 const shrink = document.querySelector("#shrink");
 shrink.addEventListener("click", () => {
-        p.classList.remove("grow");
-        grow.classList.remove("buttonDown");
-    shrink.classList.add("buttonDown");
-    p.style.fontSize = ""
-      
+  p.classList.remove("grow");
+  grow.classList.remove("buttonDown");
+  shrink.classList.add("buttonDown");
+  p.style.fontSize = "";
+
   if (shrinkClickCounter < 3) {
     shrinkClickCounter++;
     currentFontSize -= 1;
@@ -97,21 +97,22 @@ green.addEventListener("click", () => {
 });
 
 let blurFilter = 0;
+let blurClickCounter = 0;
 
 const blurEffect = document.querySelector("#blur");
 blurEffect.addEventListener("click", () => {
-  clickCounter++;
+  blurClickCounter++;
 
-  if (clickCounter < 4) {
+  if (blurClickCounter < 4) {
     blurFilter += 1;
     p.style.filter = "blur(" + blurFilter + "px)";
-  } else if (clickCounter === 4) {
+  } else if (blurClickCounter === 4) {
     blurEffect.classList.remove("buttonDown");
-    clickCounter = 0;
+    blurClickCounter = 0;
     p.style = "";
     blurFilter = 0;
   }
-  if (clickCounter === 1) {
+  if (blurClickCounter === 1) {
     blurEffect.classList.add("buttonDown");
   }
 });
