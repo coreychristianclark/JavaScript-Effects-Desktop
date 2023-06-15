@@ -3,18 +3,22 @@ html {
 }
 
 body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 2px solid black;
     height: 21em;
-    max-width: 50%;
+    max-width: 45%;
     border-radius: 2%;
     background: linear-gradient(to right, #B1E1FF, #A7FFE4, #B1B2FF);
 }
 
 #merge {
+    
     height: 100%;
     background-color: #dcc7f8;
     border-radius: 2%;
-
 }
 
 #flex-container {
@@ -42,8 +46,8 @@ p {
 }
 
 #pContainer {
-overflow: hidden;
-height: 5em;
+    overflow: hidden;
+    height: 5em;
 }
 
 #clear {
@@ -75,6 +79,11 @@ button {
 .underlineEffect {
     text-decoration: underline;
 }
+
+
+
+
+
 
 .upsideDown {
   transform: rotate(180deg);

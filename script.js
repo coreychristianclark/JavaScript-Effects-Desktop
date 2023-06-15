@@ -24,7 +24,7 @@ let shrinkClickCounter = 0;
 
 const grow = document.querySelector("#grow");
 grow.addEventListener("click", () => {
-  p.classList.remove("shrink");
+  shrinkClickCounter = 0;
   shrink.classList.remove("buttonDown");
   grow.classList.add("buttonDown");
   p.style.fontSize = "";
@@ -43,10 +43,10 @@ grow.addEventListener("click", () => {
 
 const shrink = document.querySelector("#shrink");
 shrink.addEventListener("click", () => {
-  p.classList.remove("grow");
+  growClickCounter = 0;
   grow.classList.remove("buttonDown");
   shrink.classList.add("buttonDown");
-  p.style.fontSize = "";
+  p.style.fontSize = 25;
 
   if (shrinkClickCounter < 3) {
     shrinkClickCounter++;
