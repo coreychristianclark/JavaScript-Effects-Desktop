@@ -19,36 +19,14 @@ underline.addEventListener("click", () => {
 });
 
 let currentFontSize = 25;
-let growClickCounter = 0;
-let shrinkClickCounter = 0;
-
-
-
-
-
-
-
-
-
-
-
-FIX GROWWWWWWWWWWWWW
-
-
-
-
-
-
-
-
+const growClickCounter = 0;
+const shrinkClickCounter = 0;
 
 const grow = document.querySelector("#grow");
 grow.addEventListener("click", () => {
   shrinkClickCounter = 0;
   removeButtonDown(shrink);
-  //   shrink.classList.remove("buttonDown");
-  addButtonDown("grow");
-  //   grow.classList.add("buttonDown");
+  addButtonDown(grow);
   p.style.fontSize = "";
   if (growClickCounter < 3) {
     growClickCounter++;
@@ -56,7 +34,6 @@ grow.addEventListener("click", () => {
     p.style.fontSize = currentFontSize + "px";
   } else if (growClickCounter >= 3) {
     removeButtonDown(grow);
-    // grow.classList.remove("buttonDown");
     growClickCounter = 0;
     currentFontSize = 25;
     p.style.fontSize = "";
@@ -67,10 +44,7 @@ const shrink = document.querySelector("#shrink");
 shrink.addEventListener("click", () => {
   growClickCounter = 0;
   removeButtonDown(grow);
-  //   grow.classList.remove("buttonDown");
   addButtonDown(shrink);
-  // shrink.classList.add("buttonDown");
-  // blurEffect.classList.remove("buttonDown")
   p.style.fontSize = 25;
 
   if (shrinkClickCounter < 3) {
@@ -78,8 +52,7 @@ shrink.addEventListener("click", () => {
     currentFontSize -= 1;
     p.style.fontSize = currentFontSize + "px";
   } else if (shrinkClickCounter >= 3) {
-    removeButtonDown("shrink");
-    // shrink.classList.remove("buttonDown");
+    removeButtonDown(shrink);
     shrinkClickCounter = 0;
     currentFontSize = 25;
     p.style.fontSize = "";
@@ -99,9 +72,7 @@ red.addEventListener("click", () => {
   p.classList.toggle("danger");
   toggleButtonDown(red);
   removeButtonDown(blue);
-  //   blue.classList.remove("buttonDown");
   removeButtonDown(green);
-  //   green.classList.remove("buttonDown");
 });
 
 const blue = document.querySelector("#blue");
@@ -111,25 +82,24 @@ blue.addEventListener("click", () => {
   p.classList.toggle("aqua");
   toggleButtonDown(blue);
   removeButtonDown(red);
-  //   red.classList.remove("buttonDown");
   removeButtonDown(green);
-  //   green.classList.remove("buttonDown");
 });
 
 const green = document.querySelector("#green");
 green.addEventListener("click", () => {
-  p.classList.remove("danger");
-  p.classList.remove("aqua");
-  p.classList.toggle("go");
+  removeEffect(p, "danger");
+  //   p.classList.remove("danger");
+  removeEffect(p, "aqua");
+  //   p.classList.remove("aqua");
+  toggleEffect(p, "go");
+  //   p.classList.toggle("go");
   toggleButtonDown(green);
   removeButtonDown(red);
-  //   red.classList.remove("buttonDown");
   removeButtonDown(blue);
-  //   blue.classList.remove("buttonDown");
 });
 
-let blurFilter = 0;
-let blurClickCounter = 0;
+const blurFilter = 0;
+const blurClickCounter = 0;
 
 const blurEffect = document.querySelector("#blur");
 blurEffect.addEventListener("click", () => {
@@ -140,7 +110,6 @@ blurEffect.addEventListener("click", () => {
     p.style.filter = "blur(" + blurFilter + "px)";
   } else if (blurClickCounter === 4) {
     removeButtonDown(blurEffect);
-    // blurEffect.classList.remove("buttonDown");
     blurClickCounter = 0;
     p.style = "";
     blurFilter = 0;
@@ -156,8 +125,8 @@ clear.addEventListener("click", () => {
     "boldEffect",
     "italic",
     "underlineEffect",
-    "upsideDown",
     "danger",
+    "upsideDown",
     "aqua",
     "go",
     "buttonDown",
@@ -174,27 +143,8 @@ clear.addEventListener("click", () => {
   growClickCounter = 0;
   shrinkClickCounter = 0;
   blurClickCounter = 0;
-
+  currentFontSize = 25;
   p.style = "";
-  //   p.classList.remove("boldEffect");
-  //   p.classList.remove("italic");
-  //   p.classList.remove("underlineEffect");
-  //   p.classList.remove("upsideDown");
-  //   p.classList.remove("danger");
-  //   p.classList.remove("aqua");
-  //   p.classList.remove("go");
-  //   p.classList.remove("buttonDown");
-  //   p.style = "";
-  //   bold.classList.remove("buttonDown");
-  //   italicize.classList.remove("buttonDown");
-  //   underline.classList.remove("buttonDown");
-  //   grow.classList.remove("buttonDown");
-  //   shrink.classList.remove("buttonDown");
-  //   invert.classList.remove("buttonDown");
-  //   red.classList.remove("buttonDown");
-  //   blue.classList.remove("buttonDown");
-  //   green.classList.remove("buttonDown");
-  //   blurEffect.classList.remove("buttonDown");
 });
 
 function addButtonDown(element) {
@@ -207,4 +157,16 @@ function toggleButtonDown(element) {
 
 function removeButtonDown(element) {
   element.classList.remove("buttonDown");
+}
+
+function addEffect(element, effect) {
+  element.classList.add("effect");
+}
+
+function toggleEffect(element, effect) {
+  element.classList.toggle("effect");
+}
+
+function removeEffect(element, effect) {
+  element.classList.remove("effect");
 }
