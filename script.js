@@ -2,19 +2,19 @@ const p = document.querySelector("p");
 
 const bold = document.querySelector("#bold");
 bold.addEventListener("click", () => {
-  p.classList.toggle("boldEffect");
+  toggleEffect(p, "boldEffect");
   toggleButtonDown(bold);
 });
 
 const italicize = document.querySelector("#italicize");
 italicize.addEventListener("click", () => {
-  p.classList.toggle("italic");
+  toggleEffect(p, "italic");
   toggleButtonDown(italicize);
 });
 
 const underline = document.querySelector("#underline");
 underline.addEventListener("click", () => {
-  p.classList.toggle("underlineEffect");
+  toggleEffect(p, "underlineEffect");
   toggleButtonDown(underline);
 });
 
@@ -61,15 +61,15 @@ shrink.addEventListener("click", () => {
 
 const invert = document.querySelector("#invert");
 invert.addEventListener("click", () => {
-  p.classList.toggle("upsideDown");
+  toggleEffect(p, "upsideDown");
   toggleButtonDown(invert);
 });
 
 const red = document.querySelector("#red");
 red.addEventListener("click", () => {
-  p.classList.remove("aqua");
-  p.classList.remove("go");
-  p.classList.toggle("danger");
+  removeEffect(p, "aqua");
+  removeEffect(p, "go");
+  toggleEffect(p, "danger");
   toggleButtonDown(red);
   removeButtonDown(blue);
   removeButtonDown(green);
@@ -77,9 +77,9 @@ red.addEventListener("click", () => {
 
 const blue = document.querySelector("#blue");
 blue.addEventListener("click", () => {
-  p.classList.remove("danger");
-  p.classList.remove("go");
-  p.classList.toggle("aqua");
+  removeEffect(p, "danger");
+  removeEffect(p, "go");
+  toggleEffect(p, "aqua");
   toggleButtonDown(blue);
   removeButtonDown(red);
   removeButtonDown(green);
@@ -88,11 +88,8 @@ blue.addEventListener("click", () => {
 const green = document.querySelector("#green");
 green.addEventListener("click", () => {
   removeEffect(p, "danger");
-  //   p.classList.remove("danger");
   removeEffect(p, "aqua");
-  //   p.classList.remove("aqua");
   toggleEffect(p, "go");
-  //   p.classList.toggle("go");
   toggleButtonDown(green);
   removeButtonDown(red);
   removeButtonDown(blue);
@@ -115,7 +112,7 @@ blurEffect.addEventListener("click", () => {
     blurFilter = 0;
   }
   if (blurClickCounter === 1) {
-    toggleButtonDown(blurEffect);
+    addButtonDown(blurEffect);
   }
 });
 
@@ -160,13 +157,13 @@ function removeButtonDown(element) {
 }
 
 function addEffect(element, effect) {
-  element.classList.add("effect");
+  element.classList.add(effect);
 }
 
 function toggleEffect(element, effect) {
-  element.classList.toggle("effect");
+  element.classList.toggle(effect);
 }
 
 function removeEffect(element, effect) {
-  element.classList.remove("effect");
+  element.classList.remove(effect);
 }
