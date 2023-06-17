@@ -19,24 +19,24 @@ underline.addEventListener("click", () => {
 });
 
 let currentFontSize = 25;
-const growClickCounter = 0;
-const shrinkClickCounter = 0;
+let growClickCounter = 0;
+let shrinkClickCounter = 0;
 
 const grow = document.querySelector("#grow");
 grow.addEventListener("click", () => {
   shrinkClickCounter = 0;
   removeButtonDown(shrink);
   addButtonDown(grow);
-  p.style.fontSize = "";
+  fontSize("");
   if (growClickCounter < 3) {
     growClickCounter++;
     currentFontSize += 1;
-    p.style.fontSize = currentFontSize + "px";
+    fontSize(currentFontSize + "px");
   } else if (growClickCounter >= 3) {
     removeButtonDown(grow);
     growClickCounter = 0;
     currentFontSize = 25;
-    p.style.fontSize = "";
+    fontSize("");
   }
 });
 
@@ -45,17 +45,16 @@ shrink.addEventListener("click", () => {
   growClickCounter = 0;
   removeButtonDown(grow);
   addButtonDown(shrink);
-  p.style.fontSize = 25;
-
+  fontSize(25);
   if (shrinkClickCounter < 3) {
     shrinkClickCounter++;
     currentFontSize -= 1;
-    p.style.fontSize = currentFontSize + "px";
+    fontSize(currentFontSize + "px");
   } else if (shrinkClickCounter >= 3) {
     removeButtonDown(shrink);
     shrinkClickCounter = 0;
     currentFontSize = 25;
-    p.style.fontSize = "";
+    fontSize("");
   }
 });
 
@@ -95,12 +94,16 @@ green.addEventListener("click", () => {
   removeButtonDown(blue);
 });
 
-const blurFilter = 0;
-const blurClickCounter = 0;
+let blurFilter = 0;
+let blurClickCounter = 0;
 
 const blurEffect = document.querySelector("#blur");
 blurEffect.addEventListener("click", () => {
   blurClickCounter++;
+
+  if (blurClickCounter === 1) {
+    addButtonDown(blurEffect);
+  }
 
   if (blurClickCounter < 4) {
     blurFilter += 1;
@@ -110,9 +113,6 @@ blurEffect.addEventListener("click", () => {
     blurClickCounter = 0;
     p.style = "";
     blurFilter = 0;
-  }
-  if (blurClickCounter === 1) {
-    addButtonDown(blurEffect);
   }
 });
 
@@ -166,4 +166,8 @@ function toggleEffect(element, effect) {
 
 function removeEffect(element, effect) {
   element.classList.remove(effect);
+}
+
+function fontSize(value) {
+  p.style.fontSize = value;
 }
