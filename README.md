@@ -1,4 +1,4 @@
-# JavaScript-Effects-Desktop
+# JavaScript Effects Desktop
 
 My second, non-tutorial project.
 
